@@ -6,7 +6,7 @@ class AlreadyHaveAnAccountCheck extends StatelessWidget {
   final Function press;
   const AlreadyHaveAnAccountCheck({
     Key key,
-    this.signin = true,
+    @required this.signin,
     @required this.press,
   }) : super(key: key);
 
@@ -16,7 +16,7 @@ class AlreadyHaveAnAccountCheck extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          signin ? 'Don\'t have an Account? ' : 'Already have an Account?',
+          signin ? 'Don\'t have an Account? ' : 'Already have an Account? ',
           style: TextStyle(color: kPrimaryColor),
         ),
         GestureDetector(

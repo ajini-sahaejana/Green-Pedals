@@ -10,17 +10,17 @@ class UserSignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child: Scaffold(
-        body: Container(
-          width: double.infinity,
-          height: size.height,
-          child: SafeArea(
-            child: Center(
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        height: size.height,
+        child: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 50, bottom: 20),
+                    padding: const EdgeInsets.only(top: 0, bottom: 20),
                     child: kGreenLogo,
                   ),
                   Padding(
@@ -31,7 +31,7 @@ class UserSignUp extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    height: size.height * 0.05,
+                    height: size.height * 0.08,
                   ),
                   RoundedInputField(
                       hintText: 'Student ID',
@@ -49,23 +49,24 @@ class UserSignUp extends StatelessWidget {
                     hintText: 'Password',
                     onChanged: (value) {},
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, bottom: 20),
-                    child: RoundButton(
-                      text: 'Sign Up',
-                      height: 56.0,
-                      width: size.width,
-                      textColor: Colors.white,
-                      backgroundColor: kPrimaryColor,
-                      onPressed: () {
-                        //setState(() {});
-                      },
-                    ),
+                  SizedBox(
+                    height: size.height * 0.01,
+                  ),
+                  RoundButton(
+                    text: 'Sign Up',
+                    height: 56.0,
+                    width: size.width,
+                    textColor: Colors.white,
+                    backgroundColor: kPrimaryColor,
+                    onPressed: () {
+                      //setState(() {});
+                    },
                   ),
                   SizedBox(
                     height: size.height * 0.03,
                   ),
                   AlreadyHaveAnAccountCheck(
+                    signin: false,
                     press: () {
                       Navigator.push(
                         context,

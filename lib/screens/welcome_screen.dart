@@ -13,7 +13,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      seconds: 10,
+      seconds: 1,
       navigateAfterSeconds: UserSignIn(),
       photoSize: 125,
       image: Image.asset(

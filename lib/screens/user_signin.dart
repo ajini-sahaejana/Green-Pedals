@@ -4,6 +4,7 @@ import 'package:green_pedals/components/round_button.dart';
 import 'package:green_pedals/components/round_input_field.dart';
 import 'package:green_pedals/components/round_password_field.dart';
 import 'package:green_pedals/constants.dart';
+import 'package:green_pedals/screens/homepage.dart';
 import 'package:green_pedals/screens/user_signup.dart';
 
 class UserSignIn extends StatefulWidget {
@@ -15,17 +16,17 @@ class _UserSignInState extends State<UserSignIn> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return SingleChildScrollView(
-      child: Scaffold(
-        body: Container(
-          width: double.infinity,
-          height: size.height,
-          child: SafeArea(
-            child: Center(
+    return Scaffold(
+      body: Container(
+        width: double.infinity,
+        height: size.height,
+        child: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(top: 50, bottom: 20),
+                    padding: const EdgeInsets.only(top: 0, bottom: 20),
                     child: kGreenLogo,
                   ),
                   Padding(
@@ -36,7 +37,7 @@ class _UserSignInState extends State<UserSignIn> {
                     ),
                   ),
                   SizedBox(
-                    height: size.height * 0.15,
+                    height: size.height * 0.21,
                   ),
                   RoundedInputField(
                       hintText: 'Student ID',
@@ -46,23 +47,29 @@ class _UserSignInState extends State<UserSignIn> {
                     hintText: 'Password',
                     onChanged: (value) {},
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, bottom: 20),
-                    child: RoundButton(
-                      text: 'Sign In',
-                      height: 56.0,
-                      width: size.width,
-                      textColor: Colors.white,
-                      backgroundColor: kPrimaryColor,
-                      onPressed: () {
-                        setState(() {});
-                      },
-                    ),
+                  SizedBox(
+                    height: size.height * 0.01,
+                  ),
+                  RoundButton(
+                    text: 'Sign In',
+                    height: 56.0,
+                    width: size.width,
+                    textColor: Colors.white,
+                    backgroundColor: kPrimaryColor,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => HomePage(),
+                        ),
+                      );
+                    },
                   ),
                   SizedBox(
                     height: size.height * 0.03,
                   ),
                   AlreadyHaveAnAccountCheck(
+                    signin: true,
                     press: () {
                       Navigator.push(
                         context,
