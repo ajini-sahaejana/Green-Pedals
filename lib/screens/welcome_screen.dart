@@ -1,8 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:green_pedals/constants.dart';
-import 'package:green_pedals/screens/user_login.dart';
+import 'package:green_pedals/screens/user_signin.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -14,19 +13,20 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SplashScreen(
-      seconds: 3,
-      navigateAfterSeconds: UserLogin(),
-      photoSize: 175,
+      seconds: 1,
+      navigateAfterSeconds: UserSignIn(),
+      photoSize: 125,
       image: Image.asset(
-        'assets/images/image1.png',
+        'assets/images/logo.png',
       ),
-      title: Text(
-        'Green Pedals'.toUpperCase(),
-        style: kMainTitleTextStyle,
-        textAlign: TextAlign.center,
-      ),
-      loadingText: Text('Please Wait..'),
+      // title: Text(
+      //   'Green\nPedals'.toUpperCase(),
+      //   style: kMainTitleTextStyle,
+      //   textAlign: TextAlign.center,
+      // ),
+      //loadingText: Text('Please Wait..'),
       loaderColor: Colors.green,
+      backgroundColor: Color(0xFF226431),
     );
   }
 }

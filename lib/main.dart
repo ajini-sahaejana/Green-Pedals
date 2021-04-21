@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:green_pedals/screens/welcom_screen.dart';
+import 'package:green_pedals/screens/welcome_screen.dart';
 
 void main() => runApp(GreenPedals());
 
