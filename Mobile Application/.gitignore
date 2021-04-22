@@ -29,7 +29,7 @@
 .packages
 .pub-cache/
 .pub/
-Mobile Application/build/
+/build/
 
 # Web related
 lib/generated_plugin_registrant.dart
@@ -41,34 +41,6 @@ app.*.symbols
 app.*.map.json
 
 # Android Studio will place build artifacts here
-Mobile Application/android/app/debug
-Mobile Application/android/app/profile
-Mobile Application/android/app/release
-
-#Web - Admin
-
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
-# dependencies
-Web - Admin/node_modules
-.pnp
-.pnp.js
-
-# testing
-Web - Admin/coverage
-
-# production
-Web - Admin/build
-
-# misc
-.env
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
+/android/app/debug
+/android/app/profile
+/android/app/release
