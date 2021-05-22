@@ -17,6 +17,16 @@ dependencies:
   splashscreen: ^1.3.5
   flutter_svg: ^0.17.4
   google_nav_bar: ^5.0.3
+  flutter_neumorphic: ^3.1.0
+  qr_code_scanner: ^0.4.0
+  flutter_linkify: ^5.0.2
+  url_launcher: ^6.0.3
+  qr_flutter: ^4.0.0
+  path_provider: ^2.0.1
+  wc_flutter_share: ^0.4.0
+  permission_handler: ^7.1.0
+  another_flushbar: ^1.10.20
+  clipboard_manager: ^0.0.4
 
 dev_dependencies:
   flutter_test:

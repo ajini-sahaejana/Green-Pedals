@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:green_pedals/constants.dart';
+import 'package:green_pedals/screens/qr_scanner.dart';
 
 class BicycleDetails extends StatefulWidget {
   final String img;
@@ -35,7 +36,7 @@ class _BicycleDetailsState extends State<BicycleDetails> {
             Positioned(
               child: CircleAvatar(
                 radius: 124,
-                backgroundColor: Colors.orange[50],
+                backgroundColor: Colors.lightGreen[50],
               ),
               right: 20,
               top: 100,
@@ -108,38 +109,76 @@ class _BicycleDetailsState extends State<BicycleDetails> {
               right: 20,
             ),
             Positioned(
-              child: Center(
-                child: Container(
-                  width: 250,
-                  height: 100,
-                  margin: EdgeInsets.symmetric(vertical: 10.0),
-                  child: TextButton(
-                    child: Text(
-                      'UNLOCK',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontFamily: 'Comfortaa',
-                        fontSize: 25.0,
-                        wordSpacing: 2,
-                        fontWeight: FontWeight.w900,
+              child: Container(
+                height: 120,
+                width: 100,
+                decoration: BoxDecoration(
+                    border: Border.all(color: kSecLightColor),
+                    shape: BoxShape.circle),
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => QRScanner(),
                       ),
-                    ),
-                    style: TextButton.styleFrom(
-                      alignment: Alignment.center,
+                    );
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: CircleAvatar(
                       backgroundColor: kSecondaryColor.withOpacity(0.9),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(24),
+                      foregroundColor: Colors.white,
+                      child: Text(
+                        "GO",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontFamily: 'Comfortaa',
+                          fontSize: 30,
+                          height: 1.5,
+                        ),
                       ),
                     ),
-                    onPressed: () {},
                   ),
                 ),
               ),
-              bottom: 20,
-              left: 20,
-              right: 20,
-            )
+              bottom: 50,
+              left: 0,
+              right: 0,
+            ),
+            // Positioned(
+            //   child: Center(
+            //     child: Container(
+            //       width: 250,
+            //       height: 100,
+            //       margin: EdgeInsets.symmetric(vertical: 10.0),
+            //       child: TextButton(
+            //         child: Text(
+            //           'UNLOCK',
+            //           textAlign: TextAlign.center,
+            //           style: TextStyle(
+            //             color: Colors.white,
+            //             fontFamily: 'Comfortaa',
+            //             fontSize: 25.0,
+            //             wordSpacing: 2,
+            //             fontWeight: FontWeight.w900,
+            //           ),
+            //         ),
+            //         style: TextButton.styleFrom(
+            //           alignment: Alignment.center,
+            //           backgroundColor: kSecondaryColor.withOpacity(0.9),
+            //           shape: RoundedRectangleBorder(
+            //             borderRadius: BorderRadius.circular(24),
+            //           ),
+            //         ),
+            //         onPressed: () {},
+            //       ),
+            //     ),
+            //   ),
+            //   bottom: 20,
+            //   left: 20,
+            //   right: 20,
+            // ),
           ],
         ),
       ),
