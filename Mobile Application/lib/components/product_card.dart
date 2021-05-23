@@ -21,7 +21,7 @@ class ProductCard extends StatelessWidget {
                   builder: (context) {
                     return BicycleDetails(
                       img:
-                          'https://pngimg.com/uploads/bicycle/bicycle_PNG5374.png',
+                          "https://pngimg.com/uploads/bicycle/bicycle_PNG5374.png",
                     );
                   },
                 ),
@@ -32,7 +32,7 @@ class ProductCard extends StatelessWidget {
               productType: 'TriCycle',
               productPrice: 'Rs. 100/=',
               netImage: NetworkImage(
-                'https://buytricycle.com/wp-content/uploads/2020/03/black-bl22-768x563.jpg',
+                "https://buytricycle.com/wp-content/uploads/2020/03/black-bl22-768x563.jpg",
               ),
             ),
           ),

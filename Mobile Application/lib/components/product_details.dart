@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:green_pedals/constants.dart';
 
@@ -69,19 +68,15 @@ class ProductDetails extends StatelessWidget {
         ),
         Positioned(
           child: Container(
-            width: 100,
-            height: 290,
+            height: 400,
+            width: 200,
             decoration: BoxDecoration(
-              image: DecorationImage(
-                image: netImage,
-                alignment: Alignment.topRight,
-                fit: BoxFit.fitHeight,
-              ),
+              image: DecorationImage(image: netImage, fit: BoxFit.fitWidth),
             ),
           ),
-          right: 0,
-          top: 140,
-          left: 0,
+          right: 10,
+          top: 20,
+          left: 10,
         ),
       ],
     );

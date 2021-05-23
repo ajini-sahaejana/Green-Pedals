@@ -21,7 +21,6 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -49,7 +48,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                       width: 36,
                       height: 36,
                       child: Image.asset(
-                        'assets/images/profile.jpg',
+                        'assets/icons/menu.png',
                         scale: 2,
                       ),
                       // decoration: BoxDecoration(
@@ -66,7 +65,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: "Pick Your Ride Now!",
+                        text: "Select Your Ride Now!",
                         style: kTitleTextStyle,
                       ),
                     ],
@@ -93,7 +92,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 ),
               ),
               SizedBox(
-                height: size.height * 0.6,
+                height: 400,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 40, top: 10, right: 0),
                   child: TabBarView(
