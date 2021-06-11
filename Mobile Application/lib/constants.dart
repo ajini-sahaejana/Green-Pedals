@@ -43,10 +43,31 @@ const kPageTitleTextStyle = TextStyle(
   fontWeight: FontWeight.w900,
   fontFamily: 'Comfortaa',
   color: kPrimaryColor,
-  letterSpacing: 3,
+);
+
+const kSecondaryButtonTextStyle = TextStyle(
+  fontSize: 16.0,
+  fontWeight: FontWeight.w900,
+  fontFamily: 'Comfortaa',
+  color: kPrimaryColor,
+  letterSpacing: 1,
+  decoration: TextDecoration.underline,
+);
+
+const kLogoText = TextStyle(
+  fontSize: 35.0,
+  fontWeight: FontWeight.w900,
+  fontFamily: 'Comfortaa',
+  color: kPrimaryColor,
+  letterSpacing: 1,
 );
 
 const kGreenLogo = Image(
   image: AssetImage('assets/images/whitelogo.png'),
   width: 200,
+);
+
+const kGreenLogowithName = Image(
+  image: AssetImage('assets/images/whitelogo.png'),
+  width: 175,
 );
