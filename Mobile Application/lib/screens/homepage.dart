@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:green_pedals/components/round_button_bigFont.dart';
 import 'package:green_pedals/constants.dart';
+import 'package:green_pedals/screens/rent_bike.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -67,24 +68,24 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   style: kLogoText,
                 ),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.fromLTRB(20, 130, 20, 20),
-              //   child: Text.rich(
-              //     TextSpan(
-              //       children: [
-              //         TextSpan(
-              //           text: "Get Your Ride Now!",
-              //           style: kSubTextStyle,
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 125, 20, 10),
+                child: Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "Get Your Ride Now!",
+                        style: kSubTextStyle,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               // SizedBox(
               //   height: size.height * 0.01,
               // ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 175, 20, 20),
+                padding: const EdgeInsets.fromLTRB(20, 20, 20, 30),
                 child: RoundButtonBigFont(
                   text: 'Rent/Return Bike',
                   height: size.height / 4,
@@ -95,7 +96,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomePage(),
+                        builder: (context) => RentBike(),
                       ),
                     );
                   },

@@ -27,7 +27,8 @@ const kCardTextStyle = TextStyle(
 );
 
 const kCardSubTextStyle = TextStyle(
-  fontSize: 13.0,
+  fontSize: 18.0,
+  fontWeight: FontWeight.w900,
   fontFamily: 'Comfortaa',
   color: kSecLightColor,
 );
