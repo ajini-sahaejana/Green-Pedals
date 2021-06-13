@@ -143,7 +143,7 @@ class _UserSignInState extends State<UserSignIn> {
                             style: kValidateTextStyle,
                           ),
                           SizedBox(
-                            height: size.height * 0.015,
+                            height: size.height * 0.0,
                           ),
                           TextButton(
                             onPressed: widget.toggleView,

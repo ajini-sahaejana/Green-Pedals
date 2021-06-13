@@ -48,7 +48,7 @@ class _UserSignUpState extends State<UserSignUp> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 0, bottom: 20),
+                            padding: const EdgeInsets.only(top: 20, bottom: 20),
                             child: kGreenLogo,
                           ),
                           Padding(

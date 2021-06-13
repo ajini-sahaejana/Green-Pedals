@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class RoundButtonBigFont extends StatelessWidget {
-  RoundButtonBigFont({
+class RentReturnButton extends StatelessWidget {
+  RentReturnButton({
     @required this.text,
     @required this.height,
     @required this.width,
@@ -27,7 +27,7 @@ class RoundButtonBigFont extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: 10.0),
       child: TextButton(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Text(
               text,

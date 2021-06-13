@@ -20,6 +20,7 @@ class _RentBikeState extends State<RentBike> {
   TextEditingController _inputController;
   TextEditingController _outputController;
   bool isWaiting = false;
+  String msg = "";
 
   @override
   void initState() {
@@ -40,199 +41,241 @@ class _RentBikeState extends State<RentBike> {
           ),
         ),
         child: SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-                  child: Row(
+          child: Column(
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Row(
+                  children: [
+                    // Text(
+                    //   'Hi ',
+                    //   style: kSubTextStyle,
+                    // ),
+                    // Text(
+                    //   'Ajini',
+                    //   style: kSubTextStyle,
+                    // ),
+                    // Text(
+                    //   '!',
+                    //   style: kSubTextStyle,
+                    // ),
+                    // Spacer(),
+                    // Container(
+                    //   width: 36,
+                    //   height: 36,
+                    //   child: Image.asset(
+                    //     'assets/icons/menu.png',
+                    //     scale: 2,
+                    //   ),
+                    // ),
+                  ],
+                ),
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                    child: BackButton(
+                      color: kSecondaryColor,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(43, 10, 100, 0),
+                    child: kGreenLogowithName,
+                  ),
+                ],
+              ),
+              Text.rich(
+                TextSpan(
+                  text: "GREEN",
+                  style: kLogoText,
+                ),
+              ),
+              Text.rich(
+                TextSpan(
+                  text: "PEDALS",
+                  style: kLogoText,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 80, 20, 0),
+                child: Text.rich(
+                  TextSpan(
                     children: [
-                      // Text(
-                      //   'Hi ',
-                      //   style: kSubTextStyle,
-                      // ),
-                      // Text(
-                      //   'Ajini',
-                      //   style: kSubTextStyle,
-                      // ),
-                      // Text(
-                      //   '!',
-                      //   style: kSubTextStyle,
-                      // ),
-                      // Spacer(),
-                      // Container(
-                      //   width: 36,
-                      //   height: 36,
-                      //   child: Image.asset(
-                      //     'assets/icons/menu.png',
-                      //     scale: 2,
-                      //   ),
-                      // ),
+                      TextSpan(
+                        text: "Please Scan the QR Code of the Slot",
+                        style: kParaTextStyle,
+                      ),
                     ],
                   ),
                 ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                      child: BackButton(
-                        color: kSecondaryColor,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(43, 10, 100, 0),
-                      child: kGreenLogowithName,
-                    ),
-                  ],
-                ),
-                Text.rich(
-                  TextSpan(
-                    text: "GREEN",
-                    style: kLogoText,
-                  ),
-                ),
-                Text.rich(
-                  TextSpan(
-                    text: "PEDALS",
-                    style: kLogoText,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 50, 20, 20),
-                  child: Text.rich(
-                    TextSpan(
-                      children: [
-                        TextSpan(
-                          text: "Please Scan the QR Code of the Slot",
-                          style: kParaTextStyle,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                // SizedBox(
-                //   height: size.height * 0.01,
-                // ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(20, 30, 20, 30),
-                  child: Container(
-                    child: InkWell(
-                      onTap: _scan,
-                      child: RoundButtonBigFont(
-                        text: 'SCAN\nQR\nCODE',
-                        height: size.height / 4,
-                        width: size.width / 1.5,
-                        textColor: Colors.white,
-                        backgroundColor: kPrimaryColor,
-                        onPressed: null,
-                      ),
-                    ),
-                  ),
-                ),
-                // CheckBikeStatus(
-                //   status: true,
-                //   press: () {
-                //     Navigator.push(
-                //       context,
-                //       MaterialPageRoute(
-                //         builder: (context) {
-                //           return ProductCard();
-                //         },
-                //       ),
-                //     );
-                //   },
-                // ),
-                // SizedBox(
-                //   height: size.height * 0.03,
-                // ),
-                Text(
-                  'STATUS: ',
-                  style: kCardSubTextStyle,
-                ),
-                SizedBox(
-                  height: size.height * 0.01,
-                ),
-                if (isWaiting) Loading(),
-                SizedBox(
-                  height: 10,
-                ),
-                StreamBuilder<UserData>(
-                    stream: DatabaseService().userDetails(),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return Loading();
-                      } else {
-                        if (snapshot.hasData) {
-                          if (snapshot.data.bookedBike != null) {
-                            return Column(
-                              children: [
-                                Text(
-                                  'Bike Rental Successful',
-                                  style: kParaTextStyle,
-                                ),
-                                Text(
-                                  'You are on the way. Enjoy your ride!',
-                                  style: kParaTextStyle,
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  'You can return it by scanning QR again!',
-                                  style: kParaSmallTextStyle,
-                                ),
-                              ],
+              ),
+              Text(
+                msg,
+                style: kValidateTextStyle,
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 20, 20, 15),
+                child: Container(
+                  child: InkWell(
+                    onTap: _scan,
+                    child: StreamBuilder<UserData>(
+                        stream: DatabaseService().userDetails(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState !=
+                              ConnectionState.waiting) if (snapshot.hasData) {
+                            if (snapshot.data.bookedBike != null) {
+                              return RoundButtonBigFont(
+                                text: 'SCAN\nQR\nCODE\n',
+                                msg: "To Return The Bike",
+                                height: size.height / 3.5,
+                                width: size.width / 1.5,
+                                textColor: Colors.white,
+                                backgroundColor: kPrimaryColor,
+                                onPressed: null,
+                              );
+                            }
+                            return RoundButtonBigFont(
+                              text: 'SCAN\nQR\nCODE\n',
+                              msg: "To Rent A Bike",
+                              height: size.height / 3.5,
+                              width: size.width / 1.5,
+                              textColor: Colors.white,
+                              backgroundColor: kPrimaryColor,
+                              onPressed: null,
                             );
                           }
-                          return Text(
-                            'Scan QR to rent the bike',
-                            style: kParaTextStyle,
+                          return RoundButtonBigFont(
+                            text: 'SCAN\nQR\nCODE',
+                            msg: "",
+                            height: size.height / 3.5,
+                            width: size.width / 1.5,
+                            textColor: Colors.white,
+                            backgroundColor: kPrimaryColor,
+                            onPressed: null,
                           );
-                        } else {
-                          return Text(
-                            'Scan QR to rent a bike',
-                            style: kParaTextStyle,
-                          );
-                        }
-                      }
-                    }),
-
-                TextField(
-                  controller: this._inputController,
-                  keyboardType: TextInputType.url,
-                  textInputAction: TextInputAction.go,
-                  onSubmitted: (value) => _generateBarCode(value),
-                ),
-                TextField(
-                  readOnly: true,
-                  controller: this._outputController,
-                  decoration: InputDecoration(
-                    //prefixIcon: Icon(Icons.wrap_text),
-                    contentPadding:
-                        EdgeInsets.symmetric(horizontal: 10, vertical: 19),
+                        }),
                   ),
                 ),
-              ],
-            ),
+              ),
+              // CheckBikeStatus(
+              //   status: true,
+              //   press: () {
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) {
+              //           return ProductCard();
+              //         },
+              //       ),
+              //     );
+              //   },
+              // ),
+              // SizedBox(
+              //   height: size.height * 0.03,
+              // ),
+              Text(
+                'STATUS: ',
+                style: kCardSubTextStyle,
+              ),
+              SizedBox(
+                height: size.height * 0.005,
+              ),
+              if (isWaiting) Loading(),
+              SizedBox(
+                height: 10,
+              ),
+              StreamBuilder<UserData>(
+                  stream: DatabaseService().userDetails(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Loading();
+                    } else {
+                      if (snapshot.hasData) {
+                        if (snapshot.data.bookedBike != null) {
+                          return Column(
+                            children: [
+                              Text(
+                                'Bike Rental Successful',
+                                style: kParaTextStyle,
+                              ),
+                              Text(
+                                'You are on the way. Enjoy your ride!',
+                                style: kParaTextStyle,
+                              ),
+                              SizedBox(
+                                height: 5,
+                              ),
+                              Text(
+                                'You can return it by scanning QR again!',
+                                style: kParaSmallTextStyle,
+                              ),
+                            ],
+                          );
+                        }
+                        return Text(
+                          'Scan QR to rent the bike',
+                          style: kParaTextStyle,
+                        );
+                      } else {
+                        return Text(
+                          'Scan QR to rent a bike',
+                          style: kParaTextStyle,
+                        );
+                      }
+                    }
+                  }),
+              SizedBox(
+                height: 30,
+              ),
+              // TextField(
+              //   controller: this._inputController,
+              //   keyboardType: TextInputType.url,
+              //   textInputAction: TextInputAction.go,
+              //   onSubmitted: (value) => _generateBarCode(value),
+              // ),
+              // TextField(
+              //   readOnly: true,
+              //   controller: this._outputController,
+              //   decoration: InputDecoration(
+              //     //prefixIcon: Icon(Icons.wrap_text),
+              //     contentPadding:
+              //         EdgeInsets.symmetric(horizontal: 10, vertical: 19),
+              //   ),
+              // ),
+            ],
           ),
         ),
       ),
     );
   }
 
+  setMsg(String msg) => setState(() {
+        msg = msg;
+      });
 //scan
   Future _scan() async {
-    _rentBike("58RlEEsRW4ftC9XVEOQG", "xHsWelTPClmERYiPdkdE");
-    return;
-    await Permission.camera.request();
-    String barcode = await scanner.scan();
-    if (barcode == null) {
-      print('nothing return.');
-    } else {
-      this._outputController.text = barcode;
+    setMsg("");
+    try {
+      await Permission.camera.request();
+      String barcode = await scanner.scan();
+      if (barcode == null) {
+        setMsg("Invalid QR code! Please try again.");
+        print('nothing returned');
+      } else {
+        // this._outputController.text = barcode;
+        List<String> codes = barcode.split(',');
+        if (codes.isNotEmpty) {
+          _rentBike(codes[0], codes[1]);
+        } else {
+          setMsg("Invalid QR code! Please try again.");
+        }
+      }
+    } catch (e) {
+      setMsg("There was an error!");
     }
   }
 

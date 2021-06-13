@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:green_pedals/models/user.dart';
+import 'package:oktoast/oktoast.dart';
 
 class DatabaseService {
   final String uid;
@@ -78,12 +79,14 @@ class DatabaseService {
       // if user has a bike currently
       await removeBikeFromUserData();
       await addBikeToSlot(dockId, slotId, bikeId);
+      showToast("Bike returned successfuly!", position: ToastPosition.bottom);
     } else {
       //if user dont have one currently
       String bikeIdFromSlot = await getBikeIdFromSlot(dockId, slotId);
       if (bikeIdFromSlot != null) {
         await addBikeToUserData(bikeIdFromSlot);
         await removeBikeFromSlot(dockId, slotId);
+        showToast("Bike rented successfuly!", position: ToastPosition.bottom);
       }
     }
   }
