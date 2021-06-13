@@ -11,6 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    //final user_details = Provider.of<QuerySnapshot>(context);
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(

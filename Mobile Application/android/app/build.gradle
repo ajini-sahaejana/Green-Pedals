@@ -23,6 +23,7 @@ if (flutterVersionName == null) {
 
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
+
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
@@ -52,6 +53,5 @@ flutter {
 }
 
 dependencies {
-    // Import the BoM for the Firebase platform
     implementation platform('com.google.firebase:firebase-bom:28.1.0')
 }
