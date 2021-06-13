@@ -1,33 +1,34 @@
 {
   "project_info": {
-    "project_number": "46194905396",
-    "project_id": "green-pedals-test01",
-    "storage_bucket": "green-pedals-test01.appspot.com"
+    "project_number": "359747787164",
+    "firebase_url": "https://green-pedals-default-rtdb.firebaseio.com",
+    "project_id": "green-pedals",
+    "storage_bucket": "green-pedals.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:46194905396:android:d8158e410732be4feed561",
+        "mobilesdk_app_id": "1:359747787164:android:40b2efeea5921d7fa95059",
         "android_client_info": {
           "package_name": "com.example.green_pedals"
         }
       },
       "oauth_client": [
         {
-          "client_id": "46194905396-q6enkh6ekj0jollk4h1gecs2ggcaa6sf.apps.googleusercontent.com",
+          "client_id": "359747787164-co4ni23motionl83cdi1ppkvqf58sb63.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDjWyjCYB6mZZwhKycUhUzmOMjDetQkYco"
+          "current_key": "AIzaSyDrh8643c-nkFDJG_MTUm_gF6hS8HZ5Wk8"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "46194905396-q6enkh6ekj0jollk4h1gecs2ggcaa6sf.apps.googleusercontent.com",
+              "client_id": "359747787164-co4ni23motionl83cdi1ppkvqf58sb63.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
