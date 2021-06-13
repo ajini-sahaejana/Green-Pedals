@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:green_pedals/components/round_button_bigFont.dart';
 import 'package:green_pedals/constants.dart';
+import 'package:green_pedals/models/user.dart';
+import 'package:green_pedals/services/database.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:qrscan/qrscan.dart' as scanner;
 
@@ -17,6 +19,8 @@ class _RentBikeState extends State<RentBike> {
   Uint8List bytes = Uint8List(0);
   TextEditingController _inputController;
   TextEditingController _outputController;
+  bool isWaiting = false;
+
   @override
   void initState() {
     super.initState();
@@ -151,14 +155,51 @@ class _RentBikeState extends State<RentBike> {
                 SizedBox(
                   height: size.height * 0.01,
                 ),
-                Text(
-                  'Bike Rental Successful',
-                  style: kParaTextStyle,
+                if (isWaiting) Loading(),
+                SizedBox(
+                  height: 10,
                 ),
-                Text(
-                  'You are on the way. Enjoy your ride!',
-                  style: kParaTextStyle,
-                ),
+                StreamBuilder<UserData>(
+                    stream: DatabaseService().userDetails(),
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        return Loading();
+                      } else {
+                        if (snapshot.hasData) {
+                          if (snapshot.data.bookedBike != null) {
+                            return Column(
+                              children: [
+                                Text(
+                                  'Bike Rental Successful',
+                                  style: kParaTextStyle,
+                                ),
+                                Text(
+                                  'You are on the way. Enjoy your ride!',
+                                  style: kParaTextStyle,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  'You can return it by scanning QR again!',
+                                  style: kParaSmallTextStyle,
+                                ),
+                              ],
+                            );
+                          }
+                          return Text(
+                            'Scan QR to rent the bike',
+                            style: kParaTextStyle,
+                          );
+                        } else {
+                          return Text(
+                            'Scan QR to rent a bike',
+                            style: kParaTextStyle,
+                          );
+                        }
+                      }
+                    }),
+
                 TextField(
                   controller: this._inputController,
                   keyboardType: TextInputType.url,
@@ -184,6 +225,8 @@ class _RentBikeState extends State<RentBike> {
 
 //scan
   Future _scan() async {
+    _rentBike("58RlEEsRW4ftC9XVEOQG", "xHsWelTPClmERYiPdkdE");
+    return;
     await Permission.camera.request();
     String barcode = await scanner.scan();
     if (barcode == null) {
@@ -193,9 +236,36 @@ class _RentBikeState extends State<RentBike> {
     }
   }
 
+  Future<void> _rentBike(String dockId, String slotId) async {
+    setState(() {
+      isWaiting = true;
+    });
+    await DatabaseService().updateBikeRentData(dockId, slotId);
+    setState(() {
+      isWaiting = false;
+    });
+  }
+
   Future _generateBarCode(String inputCode) async {
     Uint8List result = await scanner.generateBarCode(inputCode);
     this.setState(() => this.bytes = result);
     //print(result);
+  }
+}
+
+class Loading extends StatelessWidget {
+  const Loading({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 24,
+      height: 24,
+      child: CircularProgressIndicator(
+        color: kSecLightColor,
+      ),
+    );
   }
 }

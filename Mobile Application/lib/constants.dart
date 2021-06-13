@@ -46,6 +46,11 @@ const kParaTextStyle = TextStyle(
   fontFamily: 'Comfortaa',
   color: Colors.black,
 );
+const kParaSmallTextStyle = TextStyle(
+  fontSize: 13.0,
+  fontFamily: 'Comfortaa',
+  color: Colors.black,
+);
 
 const kPageTitleTextStyle = TextStyle(
   fontSize: 30.0,
