@@ -4,6 +4,7 @@ const kPrimaryColor = Color(0xFF226431);
 const kSecondaryColor = Color(0xff144400);
 const kPrimaryLightColor = Color(0xFFA5D6A7);
 const kSecLightColor = Color(0xFF73a942);
+const kErrorColor = Color(0xFF901100);
 
 const kTitleTextStyle = TextStyle(
   fontSize: 25.0,
@@ -31,6 +32,13 @@ const kCardSubTextStyle = TextStyle(
   fontWeight: FontWeight.w900,
   fontFamily: 'Comfortaa',
   color: kSecLightColor,
+);
+
+const kValidateTextStyle = TextStyle(
+  fontSize: 12.0,
+  height: 0.1,
+  fontFamily: 'Comfortaa',
+  color: kErrorColor,
 );
 
 const kParaTextStyle = TextStyle(
@@ -63,6 +71,13 @@ const kLogoText = TextStyle(
   letterSpacing: 1,
 );
 
+const kLogoTextLight = TextStyle(
+  fontSize: 35.0,
+  fontWeight: FontWeight.w900,
+  fontFamily: 'Comfortaa',
+  color: kPrimaryLightColor,
+  letterSpacing: 1,
+);
 const kGreenLogo = Image(
   image: AssetImage('assets/images/whitelogo.png'),
   width: 200,
