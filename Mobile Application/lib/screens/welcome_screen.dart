@@ -16,6 +16,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   Widget build(BuildContext context) {
     return StreamProvider<UserDetails>.value(
       value: AuthService().user,
+      initialData: null,
       child: MaterialApp(
         home: SplashScreen(
           seconds: 5,
